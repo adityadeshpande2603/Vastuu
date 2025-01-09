@@ -21,7 +21,7 @@ function Chat({ chats }) {
     const handleOpenChat = async (id, receiver) => {
         console.log(receiver);
         try {
-            const res = await axios.get(`http://localhost:3000/api/chats/${id}`, {
+            const res = await axios.get(`https://vastuu.onrender.com/api/chats/${id}`, {
                 withCredentials: true,
             });
             if (!res.data.seenBy.includes(currentUser.id)) {
@@ -48,7 +48,7 @@ function Chat({ chats }) {
 
     //     try {
     //         const res = await axios.post(
-    //             `http://localhost:3000/api/messages/${chat.id}`,
+    //             `https://vastuu.onrender.com/api/messages/${chat.id}`,
     //             { text },
     //             { withCredentials: true }
     //         );

@@ -9,7 +9,7 @@ export const SinglePageLoader = async ({ params }) => {
         
         
         
-  const res = await axios.get("http://localhost:3000/api/posts/" + params.id, { withCredentials: true });
+  const res = await axios.get("https://vastuu.onrender.com/api/posts/" + params.id, { withCredentials: true });
   
   return res.data;
   }
@@ -22,7 +22,7 @@ export const listPageLoader = async ({ request,params }) => {
     
     const query=request.url.split("?")[1];
     // 
-    const responsePromise= axios.get("http://localhost:3000/api/posts?" + query);
+    const responsePromise= axios.get("https://vastuu.onrender.com/api/posts?" + query);
     
     return defer({
         responsePromise: responsePromise,
@@ -45,10 +45,10 @@ export const profileLoader = async ({ request }) => {
           throw new Error("User not logged in");
       }
   
-      const response = await axios.get(`http://localhost:3000/api/users/${currentUser.id}`, {
+      const response = await axios.get(`https://vastuu.onrender.com/api/users/${currentUser.id}`, {
           withCredentials: true,
       });
-      const chats=await axios.get("http://localhost:3000/api/chats/",{ withCredentials: true,
+      const chats=await axios.get("https://vastuu.onrender.com/api/chats/",{ withCredentials: true,
       })
       
      
@@ -74,7 +74,7 @@ export const profileLoader = async ({ request }) => {
 //   }
 
 //   try {
-//       const response =  axios.get(`http://localhost:3000/api/users/${currentUser.id}`, {
+//       const response =  axios.get(`https://vastuu.onrender.com/api/users/${currentUser.id}`, {
 //           withCredentials: true,
 //       });
 //       return response.data; // Return user data

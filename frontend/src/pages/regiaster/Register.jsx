@@ -16,32 +16,32 @@ const Register = () => {
         const email = formData.get("email");
         const password = formData.get("password");
 
-        if(!(username && email && password)){
-            if(!username){
+        if (!(username && email && password)) {
+            if (!username) {
                 setErrorUsername("Username Required")
             }
-            if(!email){
+            if (!email) {
                 setErrorEmail("Email Required")
             }
-            if(!password){
+            if (!password) {
                 setErrorPassword("Password Required")
             }
             return
         }
 
         try {
-            const res = await axios.post("http://localhost:3000/api/auth/register", {
+            const res = await axios.post("https://vastuu.onrender.com/api/auth/register", {
                 username,
                 email,
                 password,
             });
             navigate("/login");
-             // Navigate to the home page on success
+            // Navigate to the home page on success
         } catch (err) {
             console.error(err); // Log the entire error
             setError(err.response?.data?.message || "Something went wrong");
         }
-        
+
     };
 
     return (
@@ -55,21 +55,21 @@ const Register = () => {
                         type="email"
                         placeholder="Email"
                     />
-                     {errorEmail && <span className="text-red-500">{errorEmail}</span>}
+                    {errorEmail && <span className="text-red-500">{errorEmail}</span>}
                     <input
                         type="text"
                         name="username"
                         className="p-3 w-80 border-2 border-black"
                         placeholder="Username"
                     />
-                     {errorUsername && <span className="text-red-500">{errorUsername}</span>}
+                    {errorUsername && <span className="text-red-500">{errorUsername}</span>}
                     <input
                         type="password"
                         name="password"
                         className="p-3 w-80 border-2 border-black"
                         placeholder="Password"
                     />
-                     {errorPassword && <span className="text-red-500">{errorPassword}</span>}
+                    {errorPassword && <span className="text-red-500">{errorPassword}</span>}
                     <button
                         type="submit"
                         className="p-3 w-80 border-2 bg-cyan-500 text-white"

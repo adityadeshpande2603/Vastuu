@@ -16,11 +16,11 @@ function NewPostPage() {
         e.preventDefault();
         const formData = new FormData(e.target);
         const inputs = Object.fromEntries(formData);
-        
-        
+
+
 
         try {
-            const res = await axios.post("http://localhost:3000/api/posts/", {
+            const res = await axios.post("https://vastuu.onrender.com/api/posts/", {
                 postData: {
                     title: inputs.title,
                     price: parseInt(inputs.price),
@@ -33,7 +33,7 @@ function NewPostPage() {
                     latitude: inputs.latitude,
                     longitude: inputs.longitude,
                     images: images,
-                    
+
                 },
                 postDetail: {
                     desc: value,
@@ -45,7 +45,7 @@ function NewPostPage() {
                     bus: parseInt(inputs.bus),
                     restaurant: parseInt(inputs.restaurant),
                 },
-            },{withCredentials:true});
+            }, { withCredentials: true });
             navigate("/" + res.data.id);
         } catch (err) {
             console.log(err);

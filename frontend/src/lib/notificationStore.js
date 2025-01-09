@@ -6,7 +6,7 @@ export const useNotificationStore = create((set) => ({
   number: 0,
   fetch: async () => {
     // const res = await apiRequest("/users/notification");
-    const res = await axios.get("http://localhost:3000/api/users/notification",{withCredentials:true});
+    const res = await axios.get("https://vastuu.onrender.com/api/users/notification",{withCredentials:true});
     set({ number: res.data });
   },
   decrease: () => {

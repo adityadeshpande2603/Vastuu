@@ -53,7 +53,7 @@ const SinglePage = () => {
         }
         try {
             await axios.post(
-                "http://localhost:3000/api/users/save",
+                "https://vastuu.onrender.com/api/users/save",
                 { postId: post.id },
                 { withCredentials: true }
             );;
@@ -72,7 +72,7 @@ const SinglePage = () => {
     const openChat = async () => {
 
         try {
-            const res = await axios.post("http://localhost:3000/api/chats", {
+            const res = await axios.post("https://vastuu.onrender.com/api/chats", {
                 "receiverId": post.user.id,
             }, {
                 withCredentials: true,

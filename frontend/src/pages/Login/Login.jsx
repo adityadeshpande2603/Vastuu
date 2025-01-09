@@ -32,7 +32,7 @@ const Login = () => {
         try {
 
             setIsLoading(true);
-            const res = await axios.post("http://localhost:3000/api/auth/login", {
+            const res = await axios.post("https://vastuu.onrender.com/api/auth/login", {
                 username,
 
                 password,

@@ -17,16 +17,16 @@ const UpdateProfilePage = () => {
     console.log(password);
 
     try {
-        const res = await axios.put(
-            `http://localhost:3000/api/users/${currentUser.id}`,
-            {
-              username,
-              email,
-              avatar:avatar[0],
-              ...(password && { password }) // This includes password if it's provided
-            },
-            { withCredentials: true }
-          );
+      const res = await axios.put(
+        `https://vastuu.onrender.com/api/users/${currentUser.id}`,
+        {
+          username,
+          email,
+          avatar: avatar[0],
+          ...(password && { password }) // This includes password if it's provided
+        },
+        { withCredentials: true }
+      );
       updateUser(res.data);
     } catch (err) {
       setError(err.response?.data?.message || "An unexpected error occurred");
@@ -57,7 +57,7 @@ const UpdateProfilePage = () => {
             type="password"
             name="password"
             className="p-3 w-80 border-2 border-black"
-            // defaultValue="Password"
+          // defaultValue="Password"
           />
           <button
             type="submit"
@@ -75,9 +75,9 @@ const UpdateProfilePage = () => {
           className="w-4/5"
           alt="Profile Avatar"
         />
-          <div className="mt-3 ">
+        <div className="mt-3 ">
           {console.log(avatar)}
-        <CloudinaryUploadWidget
+          <CloudinaryUploadWidget
             uwConfig={{
               cloudName: "adityadeshpande",
               uploadPreset: "Vaastu",
@@ -86,16 +86,16 @@ const UpdateProfilePage = () => {
               folder: "avatars",
             }}
             setPublicId={setPublicId}
-            
+
             setState={setAvatar}
           />
           {console.log(avatar)}
-          
+
         </div>
 
       </div>
-   
-    
+
+
     </div>
   );
 };

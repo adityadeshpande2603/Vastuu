@@ -20,12 +20,12 @@ const ChatWindow = ({ chat, setChat, id, receiver, open, setOpen }) => {
 
     useEffect(() => {
         messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, [chat,chatSinglePage]);
+    }, [chat, chatSinglePage]);
 
     const handleOpenChat = async (id, receiver) => {// chat id
         // console.log(receiver);
         try {
-            const res = await axios.get(`http://localhost:3000/api/chats/${id}`, {
+            const res = await axios.get(`https://vastuu.onrender.com/api/chats/${id}`, {
                 withCredentials: true,
             });
             console.log(res);
@@ -46,7 +46,7 @@ const ChatWindow = ({ chat, setChat, id, receiver, open, setOpen }) => {
         }
     }, [open, id, receiver]);
     const handleCloseChat = () => {
-       if(chat) setChat(null); // Close the chat window
+        if (chat) setChat(null); // Close the chat window
         else setChatSinglePage(null); // Close the chat window
         setOpen(null);
     };
@@ -62,7 +62,7 @@ const ChatWindow = ({ chat, setChat, id, receiver, open, setOpen }) => {
 
         try {
             const res = await axios.post(
-                `http://localhost:3000/api/messages/${chat?.id || chatSinglePage?.id}`,
+                `https://vastuu.onrender.com/api/messages/${chat?.id || chatSinglePage?.id}`,
                 { text },
                 { withCredentials: true }
             );
@@ -78,7 +78,7 @@ const ChatWindow = ({ chat, setChat, id, receiver, open, setOpen }) => {
                     messages: [...prev.messages, res.data],
                 }));
             }
-          
+
             if (open) {
                 socket.emit("sendMessage", {
                     receiverId: chatSinglePage.receiver.id,
@@ -186,7 +186,7 @@ const ChatWindow = ({ chat, setChat, id, receiver, open, setOpen }) => {
                                             : "self-start bg-gray-100 p-2 rounded-md"
                                             }`}
                                     >
-                                  
+
                                         <p className="text-sm">{message.text}</p>
                                         <span className="text-xs text-gray-500">
                                             {format(message?.createdAt)}

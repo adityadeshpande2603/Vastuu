@@ -18,7 +18,7 @@ import UpdateProfilePage from "./pages/Profile/UpdateProfilePage";
 import NewPostPage from "./pages/newPostPage/newPostPage";
 import Profile from "./pages/Profile/Profile";
 
-import { listPageLoader, profileLoader, SinglePageLoader } from "./lib/Loader/singlePageLoader.js";
+import { listPageLoader, profileLoader, SinglePageLoader } from "./lib/Loader/SinglePageLoader.js";
 import { SocketContextProvider } from "./lib/Context/SocketContext";
 
 const router = createBrowserRouter([

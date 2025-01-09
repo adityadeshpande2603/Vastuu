@@ -1,6 +1,6 @@
 import { Await, useLoaderData } from "react-router-dom";
 import Card from "../../components/CardComponent/Card";
-import ListPageSearchBar from "../../components/listPageSearchBar/listPageSearchBar";
+import ListPageSearchBar from "../../components/listPageSearchBar/ListPageSearchBar.jsx";
 import Map from "../../components/Map/Map";
 import { listData } from "../../lib/listData";
 import React from "react";

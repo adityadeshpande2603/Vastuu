@@ -11,7 +11,7 @@ import { LayOut, RequireAuth } from "./pages/Layout/LayOut";
 import ListPage from "./pages/ListPage/ListPage";
 import SinglePage from "./pages/SinglePage/SinglePage";
 // import Profile from "./pages/Profile/profile";
-import Register from "./pages/regiaster/REgister";
+import Register from "./pages/regiaster/Register";
 import Login from "./pages/Login/Login";
 import { AuthContextProvider } from "./lib/Context/AuthContext"; // Use the provider component
 import UpdateProfilePage from "./pages/Profile/UpdateProfilePage";
